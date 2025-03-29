@@ -1,0 +1,56 @@
+{
+    "Wheat": {
+        "water_requirements": "Medium",
+        "irrigation_method": "Flood or Sprinkler",
+        "recommended_frequency": "Once every 7-10 days",
+        "seasonal_adjustments": "Increase irrigation in dry seasons, reduce before harvesting"
+    },
+    "Rice": {
+        "water_requirements": "High",
+        "irrigation_method": "Flood",
+        "recommended_frequency": "Keep fields submerged during early growth stages",
+        "seasonal_adjustments": "Drain water before harvesting to allow drying"
+    },
+    "Corn": {
+        "water_requirements": "Medium to High",
+        "irrigation_method": "Drip or Sprinkler",
+        "recommended_frequency": "Twice a week, especially during flowering",
+        "seasonal_adjustments": "Increase irrigation in hot weather"
+    },
+    "Tomato": {
+        "water_requirements": "Medium",
+        "irrigation_method": "Drip",
+        "recommended_frequency": "Every 5-7 days",
+        "seasonal_adjustments": "Ensure consistent moisture to prevent cracking"
+    },
+    "Carrot": {
+        "water_requirements": "Low to Medium",
+        "irrigation_method": "Drip or Furrow",
+        "recommended_frequency": "Every 4-6 days",
+        "seasonal_adjustments": "Avoid excessive water to prevent root rot"
+    },
+    "Potato": {
+        "water_requirements": "Medium",
+        "irrigation_method": "Sprinkler or Drip",
+        "recommended_frequency": "Once every 5-7 days",
+        "seasonal_adjustments": "Reduce irrigation before harvest to prevent rot"
+    },
+    "Soybean": {
+        "water_requirements": "Medium",
+        "irrigation_method": "Sprinkler or Drip",
+        "recommended_frequency": "Once a week",
+        "seasonal_adjustments": "Increase irrigation during pod development"
+    },
+    "Sugarcane": {
+        "water_requirements": "High",
+        "irrigation_method": "Flood or Drip",
+        "recommended_frequency": "Every 7-10 days",
+        "seasonal_adjustments": "Increase irrigation in dry seasons"
+    },
+    "Cotton": {
+        "water_requirements": "Low to Medium",
+        "irrigation_method": "Drip or Furrow",
+        "recommended_frequency": "Once every 10-14 days",
+        "seasonal_adjustments": "Reduce irrigation during boll opening stage"
+    }
+}

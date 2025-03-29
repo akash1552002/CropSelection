@@ -15,9 +15,8 @@ export default function SplashScreen() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace("Home"); // Using replace instead of navigate
+      navigation.replace("Home"); // Navigate to Home screen
     }, 3000);
-
     return () => clearTimeout(timer);
   }, [navigation]);
 
@@ -25,7 +24,7 @@ export default function SplashScreen() {
     <View style={styles.container}>
       {/* 🔥 Lottie Animation */}
       <LottieView
-        source={require("../assets/loader2.json")} // Replace with your animation file
+        source={require("../assets/loader2.json")} // Your animation file
         autoPlay
         loop
         style={styles.animation}
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#4CAF50", // Green theme
+    backgroundColor: "#4CAF50", // Solid Green Background
   },
   animation: {
     width: width * 0.6,

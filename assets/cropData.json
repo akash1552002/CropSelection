@@ -1,0 +1,98 @@
+{
+    "Wheat": {
+      "name": "Wheat",
+      "duration": "120-150 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Wheat_close-up.JPG"
+    },
+    "Rice": {
+      "name": "Rice",
+      "duration": "90-150 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Rice_paddy_in_Indonesia.jpg"
+    },
+    "Maize": {
+      "name": "Maize",
+      "duration": "60-100 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/Corn_field.jpg"
+    },
+    "Barley": {
+      "name": "Barley",
+      "duration": "90-120 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Barley_field.jpg"
+    },
+    "Soybean": {
+      "name": "Soybean",
+      "duration": "80-120 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Soybean_USA.jpg"
+    },
+    "Sugarcane": {
+      "name": "Sugarcane",
+      "duration": "270-365 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sugarcane_field.jpg"
+    },
+    "Cotton": {
+      "name": "Cotton",
+      "duration": "150-180 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Cotton_field.JPG"
+    },
+    "Potato": {
+      "name": "Potato",
+      "duration": "90-120 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Potato_plant.jpg"
+    },
+    "Tomato": {
+      "name": "Tomato",
+      "duration": "60-80 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg"
+    },
+    "Carrot": {
+      "name": "Carrot",
+      "duration": "70-80 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/Carrot_field.jpg"
+    },
+    "Onion": {
+      "name": "Onion",
+      "duration": "100-150 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Onion_field.jpg"
+    },
+    "Garlic": {
+      "name": "Garlic",
+      "duration": "150-210 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Garlic_Field.JPG"
+    },
+    "Peanut": {
+      "name": "Peanut",
+      "duration": "120-150 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Peanut_Field.jpg"
+    },
+    "Chickpea": {
+      "name": "Chickpea",
+      "duration": "90-100 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Chickpea_plants.jpg"
+    },
+    "Lettuce": {
+      "name": "Lettuce",
+      "duration": "45-55 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Lettuce_field.jpg"
+    },
+    "Cabbage": {
+      "name": "Cabbage",
+      "duration": "90-120 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Cabbage_field.jpg"
+    },
+    "Pumpkin": {
+      "name": "Pumpkin",
+      "duration": "90-120 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Pumpkin_field.jpg"
+    },
+    "Spinach": {
+      "name": "Spinach",
+      "duration": "40-50 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Spinach_field.jpg"
+    },
+    "Strawberry": {
+      "name": "Strawberry",
+      "duration": "120-150 days",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/Strawberry_field.jpg"
+    }
+  }
+  

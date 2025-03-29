@@ -1,0 +1,1538 @@
+[
+    {
+        "crop_name": "Wheat",
+        "best_regions": [
+            "Punjab",
+            "Haryana",
+            "Uttar Pradesh",
+            "Madhya Pradesh"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Loamy",
+            "Well-drained"
+        ],
+        "ph_level": "6.0 - 7.5",
+        "temperature": "15\u00b0C - 25\u00b0C",
+        "pests": [
+            "Aphids",
+            "Armyworms"
+        ],
+        "diseases": [
+            {
+                "name": "Rust",
+                "type": "Fungal",
+                "symptoms": [
+                    "Orange or brown pustules on leaves",
+                    "Yellowing of leaves"
+                ],
+                "prevention": [
+                    "Use rust-resistant varieties",
+                    "Apply fungicides"
+                ]
+            },
+            {
+                "name": "Leaf Blight",
+                "type": "Fungal",
+                "symptoms": [
+                    "Brown spots with yellow halos on leaves",
+                    "Wilting"
+                ],
+                "prevention": [
+                    "Crop rotation",
+                    "Avoid excessive nitrogen fertilizers"
+                ]
+            },
+            {
+                "name": "Karnal Bunt",
+                "type": "Fungal",
+                "symptoms": [
+                    "Black powdery spore masses inside grains"
+                ],
+                "prevention": [
+                    "Use clean seeds",
+                    "Fungicide seed treatment"
+                ]
+            },
+            {
+                "name": "Powdery Mildew",
+                "type": "Fungal",
+                "symptoms": [
+                    "White powdery patches on leaves",
+                    "Reduced grain yield"
+                ],
+                "prevention": [
+                    "Increase air circulation",
+                    "Apply sulfur-based fungicides"
+                ]
+            }
+        ],
+        "market_price": "\u20b92200/quintal",
+        "demand": "High",
+        "export_countries": [
+            "USA",
+            "China",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 120,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 12,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 30,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 48,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 84,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 120,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": {
+            "water_requirements": "Medium",
+            "irrigation_method": "Flood or Sprinkler",
+            "recommended_frequency": "Once every 7-10 days",
+            "seasonal_adjustments": "Increase irrigation in dry seasons, reduce before harvesting"
+        },
+        "image": "https://example.com/images/wheat.jpg",
+        "icon": "https://example.com/icons/wheat.png"
+    },
+    {
+        "crop_name": "Rice",
+        "best_regions": [
+            "West Bengal",
+            "Uttar Pradesh",
+            "Punjab"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "High",
+        "soil_type": [
+            "Clayey",
+            "Waterlogged"
+        ],
+        "ph_level": "5.5 - 6.5",
+        "temperature": "20\u00b0C - 35\u00b0C",
+        "pests": [
+            "Stem Borers",
+            "Leafhoppers"
+        ],
+        "diseases": [
+            {
+                "name": "Bacterial Blight",
+                "type": "Bacterial",
+                "symptoms": [
+                    "Yellowing and wilting of leaves",
+                    "Water-soaked streaks on leaves"
+                ],
+                "prevention": [
+                    "Use resistant varieties",
+                    "Avoid overhead irrigation"
+                ]
+            },
+            {
+                "name": "Blast",
+                "type": "Fungal",
+                "symptoms": [
+                    "Grayish lesions with brown borders on leaves",
+                    "Neck rot in panicles"
+                ],
+                "prevention": [
+                    "Proper field drainage",
+                    "Fungicide application"
+                ]
+            },
+            {
+                "name": "Sheath Blight",
+                "type": "Fungal",
+                "symptoms": [
+                    "Oval lesions on leaves",
+                    "Lodging of plants"
+                ],
+                "prevention": [
+                    "Crop spacing",
+                    "Use of biological control agents"
+                ]
+            }
+        ],
+        "market_price": "\u20b91800/quintal",
+        "demand": "Very High",
+        "export_countries": [
+            "Bangladesh",
+            "UAE"
+        ],
+        "growth_cycle": {
+            "growthDuration": 150,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 15,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 37,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 60,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 105,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 150,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/rice.jpg",
+        "icon": "https://example.com/icons/rice.png"
+    },
+    {
+        "crop_name": "Maize",
+        "best_regions": [
+            "Bihar",
+            "Madhya Pradesh",
+            "Karnataka"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.0",
+        "temperature": "18\u00b0C - 27\u00b0C",
+        "pests": [
+            "Corn Borers",
+            "Armyworms"
+        ],
+        "diseases": [
+            {
+                "name": "Downy Mildew",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellow streaks on leaves",
+                    "Stunted growth"
+                ],
+                "prevention": [
+                    "Use resistant varieties",
+                    "Fungicide application"
+                ]
+            },
+            {
+                "name": "Leaf Blight",
+                "type": "Fungal",
+                "symptoms": [
+                    "Irregular brown spots on leaves"
+                ],
+                "prevention": [
+                    "Crop rotation",
+                    "Remove infected plants"
+                ]
+            }
+        ],
+        "market_price": "\u20b91600/quintal",
+        "demand": "High",
+        "export_countries": [
+            "Vietnam",
+            "Indonesia",
+            "Nepal"
+        ],
+        "growth_cycle": {
+            "growthDuration": 110,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 11,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 27,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 44,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 77,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 110,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/maize.jpg",
+        "icon": "https://example.com/icons/maize.png"
+    },
+    {
+        "crop_name": "Sugarcane",
+        "best_regions": [
+            "Uttar Pradesh",
+            "Maharashtra",
+            "Tamil Nadu"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "High",
+        "soil_type": [
+            "Fertile",
+            "Well-drained"
+        ],
+        "ph_level": "6.5 - 7.5",
+        "temperature": "21\u00b0C - 35\u00b0C",
+        "pests": [
+            "Sugarcane Borers",
+            "White Grubs"
+        ],
+        "diseases": [
+            {
+                "name": "Red Rot",
+                "type": "Fungal",
+                "symptoms": [
+                    "Reddish-brown discoloration inside stalk",
+                    "Drying of leaves"
+                ],
+                "prevention": [
+                    "Use resistant varieties",
+                    "Crop sanitation"
+                ]
+            },
+            {
+                "name": "Smut",
+                "type": "Fungal",
+                "symptoms": [
+                    "Black whip-like structures on plant"
+                ],
+                "prevention": [
+                    "Destroy infected plants",
+                    "Use certified seeds"
+                ]
+            }
+        ],
+        "market_price": "\u20b92800/ton",
+        "demand": "Very High",
+        "export_countries": [
+            "Brazil",
+            "Thailand",
+            "Indonesia"
+        ],
+        "growth_cycle": {
+            "growthDuration": 365,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 36,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 91,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 146,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 255,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 365,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/sugarcane.jpg",
+        "icon": "https://example.com/icons/sugarcane.png"
+    },
+    {
+        "crop_name": "Cotton",
+        "best_regions": [
+            "Maharashtra",
+            "Gujarat",
+            "Telangana"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Black Soil",
+            "Loamy"
+        ],
+        "ph_level": "6.0 - 7.5",
+        "temperature": "25\u00b0C - 35\u00b0C",
+        "pests": [
+            "Bollworms",
+            "Aphids"
+        ],
+        "diseases": [
+            {
+                "name": "Wilt Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Wilting of leaves",
+                    "Yellowing of veins"
+                ],
+                "prevention": [
+                    "Crop rotation",
+                    "Use resistant varieties"
+                ]
+            },
+            {
+                "name": "Leaf Curl Virus",
+                "type": "Viral",
+                "symptoms": [
+                    "Curling and distortion of leaves"
+                ],
+                "prevention": [
+                    "Control whiteflies",
+                    "Use virus-free seeds"
+                ]
+            }
+        ],
+        "market_price": "\u20b96200/quintal",
+        "demand": "High",
+        "export_countries": [
+            "USA",
+            "China",
+            "Bangladesh"
+        ],
+        "growth_cycle": {
+            "growthDuration": 180,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 18,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 45,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 72,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 125,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 180,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/cotton.jpg",
+        "icon": "https://example.com/icons/cotton.png"
+    },
+    {
+        "crop_name": "Barley",
+        "best_regions": [
+            "Rajasthan",
+            "Haryana",
+            "Punjab"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b91900/quintal",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 100,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 10,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 25,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 40,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 70,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 100,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/barley.jpg",
+        "icon": "https://example.com/icons/barley.png"
+    },
+    {
+        "crop_name": "Soybean",
+        "best_regions": [
+            "Madhya Pradesh",
+            "Maharashtra",
+            "Rajasthan"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b94000/quintal",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 120,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 12,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 30,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 48,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 84,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 120,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/soybean.jpg",
+        "icon": "https://example.com/icons/soybean.png"
+    },
+    {
+        "crop_name": "Groundnut",
+        "best_regions": [
+            "Gujarat",
+            "Andhra Pradesh",
+            "Tamil Nadu"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b94500/quintal",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 130,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 13,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 32,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 52,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 91,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 130,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/groundnut.jpg",
+        "icon": "https://example.com/icons/groundnut.png"
+    },
+    {
+        "crop_name": "Millets",
+        "best_regions": [
+            "Rajasthan",
+            "Maharashtra",
+            "Karnataka"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b92500/quintal",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 90,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 9,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 22,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 36,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 62,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 90,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/millets.jpg",
+        "icon": "https://example.com/icons/millets.png"
+    },
+    {
+        "crop_name": "Chickpeas",
+        "best_regions": [
+            "Madhya Pradesh",
+            "Rajasthan",
+            "Uttar Pradesh"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b95200/quintal",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 140,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 14,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 35,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 56,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 98,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 140,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/chickpeas.jpg",
+        "icon": "https://example.com/icons/chickpeas.png"
+    },
+    {
+        "crop_name": "Mustard",
+        "best_regions": [
+            "Rajasthan",
+            "Uttar Pradesh",
+            "West Bengal"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b95200/quintal",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 120,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 12,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 30,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 48,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 84,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 120,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/mustard.jpg",
+        "icon": "https://example.com/icons/mustard.png"
+    },
+    {
+        "crop_name": "Banana",
+        "best_regions": [
+            "Tamil Nadu",
+            "Maharashtra",
+            "Kerala"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b918/kg",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 365,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 36,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 91,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 146,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 255,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 365,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/banana.jpg",
+        "icon": "https://example.com/icons/banana.png"
+    },
+    {
+        "crop_name": "Mango",
+        "best_regions": [
+            "Uttar Pradesh",
+            "Andhra Pradesh",
+            "West Bengal"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b960/kg",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 730,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 73,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 182,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 292,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 510,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 730,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/mango.jpg",
+        "icon": "https://example.com/icons/mango.png"
+    },
+    {
+        "crop_name": "Tomato",
+        "best_regions": [
+            "Karnataka",
+            "Andhra Pradesh",
+            "Madhya Pradesh"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b940/kg",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 90,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 9,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 22,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 36,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 62,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 90,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/tomato.jpg",
+        "icon": "https://example.com/icons/tomato.png"
+    },
+    {
+        "crop_name": "Potato",
+        "best_regions": [
+            "Uttar Pradesh",
+            "West Bengal",
+            "Bihar"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b920/kg",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 100,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 10,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 25,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 40,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 70,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 100,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/potato.jpg",
+        "icon": "https://example.com/icons/potato.png"
+    },
+    {
+        "crop_name": "Onion",
+        "best_regions": [
+            "Maharashtra",
+            "Karnataka",
+            "Madhya Pradesh"
+        ],
+        "sunlight": "Full Sun",
+        "water_needs": "Medium",
+        "soil_type": [
+            "Well-drained",
+            "Loamy"
+        ],
+        "ph_level": "5.5 - 7.5",
+        "temperature": "15\u00b0C - 35\u00b0C",
+        "pests": [
+            "Common Pests"
+        ],
+        "diseases": [
+            {
+                "name": "Common Disease",
+                "type": "Fungal",
+                "symptoms": [
+                    "Yellowing leaves"
+                ],
+                "prevention": [
+                    "Crop rotation"
+                ]
+            }
+        ],
+        "market_price": "\u20b935/kg",
+        "demand": "Moderate",
+        "export_countries": [
+            "India",
+            "Asia",
+            "Europe"
+        ],
+        "growth_cycle": {
+            "growthDuration": 120,
+            "growthStages": [
+                {
+                    "stage": "Sowing",
+                    "day": 1,
+                    "activity": "Prepare soil and sow seeds",
+                    "alert": "Start sowing today!"
+                },
+                {
+                    "stage": "Germination",
+                    "day": 12,
+                    "activity": "Ensure proper watering for germination",
+                    "alert": "Check soil moisture!"
+                },
+                {
+                    "stage": "Vegetative Growth",
+                    "day": 30,
+                    "activity": "Apply first round of fertilizer",
+                    "alert": "Time to fertilize the crops!"
+                },
+                {
+                    "stage": "Pest Control",
+                    "day": 48,
+                    "activity": "Inspect for pests and apply treatment if needed",
+                    "alert": "Check for pests and diseases!"
+                },
+                {
+                    "stage": "Flowering",
+                    "day": 84,
+                    "activity": "Support flowering with balanced nutrients",
+                    "alert": "Provide nutrient support!"
+                },
+                {
+                    "stage": "Harvesting",
+                    "day": 120,
+                    "activity": "Harvest the crop and store properly",
+                    "alert": "Time to harvest!"
+                }
+            ]
+        },
+        "farming_tips": [
+            "Use high-yield and disease-resistant varieties.",
+            "Monitor soil moisture regularly for optimal growth.",
+            "Apply fertilizers based on soil test results.",
+            "Practice crop rotation to improve soil fertility.",
+            "Implement integrated pest management to reduce crop loss."
+        ],
+        "irrigation": "No irrigation data available",
+        "image": "https://example.com/images/onion.jpg",
+        "icon": "https://example.com/icons/onion.png"
+    }
+]
