@@ -129,8 +129,9 @@
             "recommended_frequency": "Once every 7-10 days",
             "seasonal_adjustments": "Increase irrigation in dry seasons, reduce before harvesting"
         },
-        "image": "https://example.com/images/wheat.jpg",
-        "icon": "https://example.com/icons/wheat.png"
+        "image":"../assets/wheat.jpeg",
+        "icon": "https://images.pexels.com/photos/27569479/pexels-photo-27569479/free-photo-of-woman-eating-sandwich-with-fork-and-knife.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              
     },
     {
         "crop_name": "Rice",
