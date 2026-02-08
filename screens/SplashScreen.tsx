@@ -65,8 +65,7 @@ import { View, Text, StyleSheet, Dimensions } from "react-native";
 import LottieView from "lottie-react-native";
 import { useNavigation } from "@react-navigation/native";
 import type { StackNavigationProp } from "@react-navigation/stack";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../config/firebaseConfig"; // ✅ Make sure the path is correct
+
 
 type RootStackParamList = {
   Home: undefined;
@@ -79,17 +78,11 @@ export default function SplashScreen() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setTimeout(() => {
-        if (user) {
-          navigation.replace("Home");
-        } else {
-          navigation.replace("Login");
-        }
-      }, 2500); // Optional delay for splash
-    });
+    const timer = setTimeout(() => {
+      navigation.replace("Home");
+    }, 2500);
 
-    return unsubscribe;
+    return () => clearTimeout(timer);
   }, [navigation]);
 
   return (

@@ -1,187 +1,23 @@
-// import React from "react";
-// import { View, Text, Image, ScrollView, StyleSheet, SafeAreaView } from "react-native";
-// import irrigationData from "../assets/irrigation_data_detailed.json";
-
-// const PlantScreen = ({ route }) => {
-//   const { crop } = route.params || {};
-//   const cropImages: { [key: string]: any } = {
-//     Wheat: require("../assets/wheat1.jpeg"),
-//     Rice: require("../assets/rice1.jpg"),
-//     Maize: require("../assets/maize1.webp"),
-//     Sugarcane: require("../assets/sugarcane1.jpg"),
-//     Cotton: require("../assets/cotton.jpg"),
-//     Barley: require("../assets/barley.jpg"),
-//     Soybean: require("../assets/soybean.webp"),
-//     Groundnut: require("../assets/groundnut.webp"),
-//     Millets: require("../assets/millets.jpg"),
-//     Chickpeas: require("../assets/chickpeas.jpg"),
-//     Mustard: require("../assets/mustard.jpg"),
-//     Banana: require("../assets/banana.jpg"),
-//     Mango: require("../assets/Mangoes.webp"),
-//     Tomato: require("../assets/tomato.jpeg"),
-//     Potato: require("../assets/potato.webp"),
-//     Onion: require("../assets/onion.jpg"),
-//   };
-
-//   if (!crop) {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.title}>Error: No crop data found.</Text>
-//       </View>
-//     );
-//   }
-
-//   const irrigationInfo = irrigationData[crop.crop_name]?.irrigation || {
-//     water_requirements: "No data available",
-//     irrigation_method: "No data available",
-//     recommended_frequency: "No data available",
-//     seasonal_adjustments: "No data available",
-//   };
-
-//   return (
-//     <SafeAreaView style={styles.safeArea}>
-//       <ScrollView contentContainerStyle={styles.container}>
-//         <Image source={cropImages[crop.crop_name]} style={styles.image} />
-//         <Text style={styles.title}>{crop.crop_name}</Text>
-
-//         <View style={styles.section}>
-//           <Text style={styles.label}>🌍 Best Regions:</Text>
-//           <Text style={styles.text}>{crop.best_regions?.join(", ") || "N/A"}</Text>
-//         </View>
-//         <Text style={styles.text}>☀️ Sunlight: {crop.sunlight || "N/A"}</Text>
-//         <Text style={styles.text}>💧 Water Needs: {crop.water_needs || "N/A"}</Text>
-//         <Text style={styles.text}>🌱 Soil Type: {crop.soil_type?.join(", ") || "N/A"}</Text>
-//         <Text style={styles.text}>⚖️ pH Level: {crop.ph_level || "N/A"}</Text>
-//         <Text style={styles.text}>🌡️ Temperature: {crop.temperature || "N/A"}</Text>
-
-//         <Text style={styles.sectionTitle}>📈 Market Information</Text>
-//         <Text style={styles.text}>💰 Market Price: {crop.market_price || "N/A"}</Text>
-//         <Text style={styles.text}>🔥 Demand: {crop.demand || "N/A"}</Text>
-//         <Text style={styles.text}>🚢 Export Countries: {crop.export_countries?.join(", ") || "N/A"}</Text>
-
-//         <Text style={styles.sectionTitle}>🐛 Pests</Text>
-//         <Text style={styles.text}>{crop.pests?.join(", ") || "None"}</Text>
-
-//         <Text style={styles.sectionTitle}>🦠 Diseases</Text>
-//         {crop.diseases?.map((disease, index) => (
-//           <View key={index} style={styles.diseaseCard}>
-//             <Text style={styles.diseaseTitle}>{disease.name} ({disease.type})</Text>
-//             <Text style={styles.text}>🩺 Symptoms: {disease.symptoms.join(", ")}</Text>
-//             <Text style={styles.text}>🛡️ Prevention: {disease.prevention.join(", ")}</Text>
-//           </View>
-//         ))}
-
-//         <Text style={styles.sectionTitle}>🌾 Growth Cycle</Text>
-//         <Text style={styles.text}>⏳ Duration: {crop.growth_cycle?.growthDuration || "N/A"} days</Text>
-//         {crop.growth_cycle?.growthStages?.map((stage, index) => (
-//           <View key={index} style={styles.stageCard}>
-//             <Text style={styles.stageTitle}>{stage.stage}</Text>
-//             <Text style={styles.text}>📅 Day {stage.day}: {stage.activity}</Text>
-//             <Text style={styles.alertText}>🔔 {stage.alert}</Text>
-//           </View>
-//         ))}
-
-//         <Text style={styles.sectionTitle}>🌿 Farming Tips</Text>
-//         {crop.farming_tips?.map((tip, index) => (
-//           <Text key={index} style={styles.text}>✔️ {tip}</Text>
-//         ))}
-
-//         <Text style={styles.sectionTitle}>💦 Irrigation</Text>
-//         <Text style={styles.text}><Text style={styles.bold}>Water Requirements:</Text> {irrigationInfo.water_requirements}</Text>
-//         <Text style={styles.text}><Text style={styles.bold}>Irrigation Method:</Text> {irrigationInfo.irrigation_method}</Text>
-//         <Text style={styles.text}><Text style={styles.bold}>Recommended Frequency:</Text> {irrigationInfo.recommended_frequency}</Text>
-//         <Text style={styles.text}><Text style={styles.bold}>Seasonal Adjustments:</Text> {irrigationInfo.seasonal_adjustments}</Text>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   safeArea: {
-//     flex: 1,
-//     backgroundColor: "#e9f5ea",
-//     paddingTop:40,
-//   },
-//   container: {
-//     flexGrow: 1,
-//     padding: 20,
-//   },
-//   image: {
-//     width: "100%",
-//     height: 200,
-//     borderRadius: 15,
-//     marginBottom: 15,
-//   },
-//   title: {
-//     fontSize: 28,
-//     fontWeight: "bold",
-//     marginBottom: 15,
-//     textAlign: "center",
-//     color: "#2e7d32",
-//   },
-//   section: {
-//     marginBottom: 10,
-//   },
-//   label: {
-//     fontWeight: "bold",
-//     fontSize: 16,
-//     marginBottom: 2,
-//   },
-//   sectionTitle: {
-//     fontSize: 22,
-//     fontWeight: "bold",
-//     marginTop: 20,
-//     marginBottom: 8,
-//     color: "#1b5e20",
-//   },
-//   text: {
-//     fontSize: 16,
-//     marginBottom: 6,
-//     color: "#424242",
-//   },
-//   bold: {
-//     fontWeight: "bold",
-//   },
-//   diseaseCard: {
-//     backgroundColor: "#ffebee",
-//     padding: 12,
-//     borderRadius: 10,
-//     marginVertical: 6,
-//   },
-//   diseaseTitle: {
-//     fontSize: 18,
-//     fontWeight: "bold",
-//     marginBottom: 4,
-//     color: "#c62828",
-//   },
-//   stageCard: {
-//     backgroundColor: "#e3f2fd",
-//     padding: 12,
-//     borderRadius: 10,
-//     marginVertical: 6,
-//   },
-//   stageTitle: {
-//     fontSize: 18,
-//     fontWeight: "bold",
-//     marginBottom: 4,
-//     color: "#1565c0",
-//   },
-//   alertText: {
-//     color: "#d32f2f",
-//     fontWeight: "bold",
-//   },
-// });
-
-// export default PlantScreen;
 import React from "react";
-import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
-import irrigationData from "../assets/irrigation_data_detailed.json"; // Ensure correct path
+import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Platform, UIManager } from "react-native";
+import irrigationData from "../assets/irrigation_data_detailed.json";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 
-const PlantScreen = ({ route }) => {
-  const navigation = useNavigation();
-  const { crop } = route.params || {}; // Ensure crop exists
-  const cropImages = {
+// Custom Components
+import InfoCard from "../components/InfoCard";
+import AccordionItem from "../components/AccordionItem";
+
+// Enable LayoutAnimation on Android
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+const PlantScreen = ({ route }: any) => {
+  const navigation = useNavigation<any>();
+  const { crop } = route.params || {};
+
+  const cropImages: { [key: string]: any } = {
     Wheat: require("../assets/wheat1.jpeg"),
     Rice: require("../assets/rice1.jpg"),
     Maize: require("../assets/maize1.webp"),
@@ -202,8 +38,12 @@ const PlantScreen = ({ route }) => {
 
   if (!crop) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Error: No crop data found.</Text>
+      <View style={styles.errorContainer}>
+        <Ionicons name="alert-circle" size={50} color="#e53935" />
+        <Text style={styles.errorText}>Error: No crop data found.</Text>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+          <Text style={styles.backButtonText}>Go Back</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -216,131 +56,250 @@ const PlantScreen = ({ route }) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Image source={cropImages[crop.crop_name]} style={styles.image} />
-      <Text style={styles.title}>{crop.crop_name}</Text>
+    <View style={styles.mainContainer}>
+      <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+        {/* Hero Image */}
+        <Image source={cropImages[crop.crop_name]} style={styles.heroImage} />
 
-      <Text style={styles.text}>🌍 Best Regions: {crop.best_regions?.join(", ") || "N/A"}</Text>
-      <Text style={styles.text}>☀️ Sunlight: {crop.sunlight || "N/A"}</Text>
-      <Text style={styles.text}>💧 Water Needs: {crop.water_needs || "N/A"}</Text>
-      <Text style={styles.text}>🌱 Soil Type: {crop.soil_type?.join(", ") || "N/A"}</Text>
-      <Text style={styles.text}>⚖️ pH Level: {crop.ph_level || "N/A"}</Text>
-      <Text style={styles.text}>🌡️ Temperature: {crop.temperature || "N/A"}</Text>
+        <View style={styles.contentContainer}>
+          <Text style={styles.title}>{crop.crop_name}</Text>
+          <Text style={styles.subtitle}>{crop.scientific_name}</Text>
 
-      <Text style={styles.sectionTitle}>📈 Market Information</Text>
-      <Text style={styles.text}>💰 Market Price: {crop.market_price || "N/A"}</Text>
-      <Text style={styles.text}>🔥 Demand: {crop.demand || "N/A"}</Text>
-      <Text style={styles.text}>🚢 Export Countries: {crop.export_countries?.join(", ") || "N/A"}</Text>
+          {/* Quick Info Grid */}
+          <View style={styles.gridContainer}>
+            <InfoCard label="Sunlight" value={crop.sunlight || "N/A"} icon="sunny" color="#FBC02D" />
+            <InfoCard label="Water" value={crop.water_needs || "N/A"} icon="water" color="#039BE5" />
+            <InfoCard label="Temperature" value={crop.temperature || "N/A"} icon="thermometer" color="#F4511E" />
+            <InfoCard label="Soil Type" value={crop.soil_type?.join(", ") || "N/A"} icon="layers" color="#795548" />
+            <InfoCard label="pH Level" value={crop.ph_level || "N/A"} icon="flask" color="#8E24AA" />
+            <InfoCard label="Seasons" value={crop.best_regions?.join(", ") || "N/A"} icon="earth" color="#43A047" />
+          </View>
 
-      <Text style={styles.sectionTitle}>🐛 Pests</Text>
-      <Text style={styles.text}>{crop.pests?.join(", ") || "None"}</Text>
+          {/* Collapsible Sections */}
+          <AccordionItem title="📈 Market Information" icon="trending-up">
+            <Text style={styles.textLabel}>💰 Market Price: <Text style={styles.textValue}>{crop.market_price || "N/A"}</Text></Text>
+            <Text style={styles.textLabel}>🔥 Demand: <Text style={styles.textValue}>{crop.demand || "N/A"}</Text></Text>
+            <Text style={styles.textLabel}>🚢 Export: <Text style={styles.textValue}>{crop.export_countries?.join(", ") || "N/A"}</Text></Text>
+          </AccordionItem>
 
-      <Text style={styles.sectionTitle}>🦠 Diseases</Text>
-      {crop.diseases?.map((disease, index) => (
-        <View key={index} style={styles.diseaseCard}>
-          <Text style={styles.diseaseTitle}>{disease.name} ({disease.type})</Text>
-          <Text style={styles.text}>🩺 Symptoms: {disease.symptoms.join(", ")}</Text>
-          <Text style={styles.text}>🛡️ Prevention: {disease.prevention.join(", ")}</Text>
+          <AccordionItem title="🌾 Growth Cycle" icon="hourglass">
+            <Text style={styles.textLabel}>⏳ Duration: {crop.growth_cycle?.growthDuration || "N/A"} days</Text>
+            {crop.growth_cycle?.growthStages?.map((stage: any, index: number) => (
+              <View key={index} style={styles.stageItem}>
+                <View style={styles.stageHeader}>
+                  <Text style={styles.stageTitle}>{stage.stage}</Text>
+                  <Text style={styles.stageDay}>Day {stage.day}</Text>
+                </View>
+                <Text style={styles.textValue}>{stage.activity}</Text>
+                {stage.alert && <Text style={styles.alertText}>🔔 {stage.alert}</Text>}
+              </View>
+            ))}
+          </AccordionItem>
+
+          <AccordionItem title="💦 Irrigation Details" icon="water">
+            <Text style={styles.textLabel}>Method: <Text style={styles.textValue}>{irrigationInfo.irrigation_method}</Text></Text>
+            <Text style={styles.textLabel}>Frequency: <Text style={styles.textValue}>{irrigationInfo.recommended_frequency}</Text></Text>
+            <Text style={styles.textLabel}>Adjustments: <Text style={styles.textValue}>{irrigationInfo.seasonal_adjustments}</Text></Text>
+          </AccordionItem>
+
+          <AccordionItem title="🐛 Pests & Diseases" icon="bug">
+            <Text style={styles.subHeader}>Pests</Text>
+            <Text style={styles.textValue}>{crop.pests?.join(", ") || "None"}</Text>
+
+            <Text style={[styles.subHeader, { marginTop: 10 }]}>Diseases</Text>
+            {crop.diseases?.map((disease: any, index: number) => (
+              <View key={index} style={styles.diseaseItem}>
+                <Text style={styles.diseaseName}>{disease.name}</Text>
+                <Text style={styles.textSmall}>🩺 {disease.symptoms.join(", ")}</Text>
+                <Text style={styles.textSmall}>🛡️ {disease.prevention.join(", ")}</Text>
+              </View>
+            ))}
+          </AccordionItem>
+
+          <AccordionItem title="🌿 Farming Tips" icon="bulb">
+            {crop.farming_tips?.map((tip: string, index: number) => (
+              <View key={index} style={styles.tipItem}>
+                <Ionicons name="checkmark-circle" size={18} color="#4CAF50" style={{ marginTop: 2 }} />
+                <Text style={styles.tipText}>{tip}</Text>
+              </View>
+            ))}
+          </AccordionItem>
+
+          {/* Space for the bottom button */}
+          <View style={{ height: 80 }} />
         </View>
-      ))}
+      </ScrollView>
 
-      <Text style={styles.sectionTitle}>🌾 Growth Cycle</Text>
-      <Text style={styles.text}>⏳ Duration: {crop.growth_cycle?.growthDuration || "N/A"} days</Text>
-      {crop.growth_cycle?.growthStages?.map((stage, index) => (
-        <View key={index} style={styles.stageCard}>
-          <Text style={styles.stageTitle}>{stage.stage}</Text>
-          <Text style={styles.text}>📅 Day {stage.day}: {stage.activity}</Text>
-          <Text style={styles.alertText}>🔔 {stage.alert}</Text>
-        </View>
-      ))}
-
-      <Text style={styles.sectionTitle}>🌾 Farming Tips</Text>
-      {crop.farming_tips?.map((tip, index) => (
-        <Text key={index} style={styles.text}>✔️ {tip}</Text>
-      ))}
-
-      <Text style={styles.sectionTitle}>💦 Irrigation</Text>
-      <Text style={styles.text}><Text style={styles.bold}>Water Requirements:</Text> {irrigationInfo.water_requirements}</Text>
-      <Text style={styles.text}><Text style={styles.bold}>Irrigation Method:</Text> {irrigationInfo.irrigation_method}</Text>
-      <Text style={styles.text}><Text style={styles.bold}>Recommended Frequency:</Text> {irrigationInfo.recommended_frequency}</Text>
-      <Text style={styles.text}><Text style={styles.bold}>Seasonal Adjustments:</Text> {irrigationInfo.seasonal_adjustments}</Text>
-
-      <TouchableOpacity
-        style={styles.scheduleButton}
-        onPress={() => navigation.navigate("CropDailySchedule", { cropName: crop.crop_name })}
-      >
-        <Text style={styles.scheduleButtonText}>📅 Select For Cropping</Text>
-      </TouchableOpacity>
-    </ScrollView>
+      {/* Fixed Bottom Button */}
+      <View style={styles.bottomBar}>
+        <TouchableOpacity
+          style={styles.scheduleButton}
+          onPress={() => navigation.navigate("CropDailySchedule", { cropName: crop.crop_name })}
+        >
+          <Ionicons name="calendar" size={24} color="white" style={{ marginRight: 10 }} />
+          <Text style={styles.scheduleButtonText}>Select For Cropping</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    padding: 20,
-    backgroundColor: "#f5f5f5",
-    paddingTop: 40,
+  mainContainer: {
+    flex: 1,
+    backgroundColor: "#F5F5F5",
   },
-  image: {
+  scrollContainer: {
+    flexGrow: 1,
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  errorText: {
+    fontSize: 18,
+    color: "#e53935",
+    marginTop: 10
+  },
+  backButton: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: "#2E7D32",
+    borderRadius: 8
+  },
+  backButtonText: {
+    color: "white",
+    fontWeight: "bold"
+  },
+  heroImage: {
     width: "100%",
-    height: 200,
-    borderRadius: 10,
-    marginBottom: 10,
+    height: 250,
+    resizeMode: 'cover',
+  },
+  contentContainer: {
+    padding: 20,
+    marginTop: -20, // Overlap the image slightly
+    backgroundColor: "#F5F5F5",
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
-    marginBottom: 10,
+    color: "#2E7D32",
     textAlign: "center",
   },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginTop: 15,
-    marginBottom: 5,
-  },
-  text: {
+  subtitle: {
     fontSize: 16,
-    marginBottom: 5,
+    color: "#666",
+    textAlign: "center",
+    fontStyle: "italic",
+    marginBottom: 20
   },
-  bold: {
-    fontWeight: "bold",
+  gridContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginBottom: 20
   },
-  diseaseCard: {
-    backgroundColor: "#ffcccc",
+  textLabel: {
+    fontSize: 14,
+    color: "#666",
+    marginBottom: 4,
+    fontWeight: "bold"
+  },
+  textValue: {
+    color: "#333",
+    fontWeight: "normal",
+    fontSize: 14
+  },
+  stageItem: {
+    backgroundColor: "white",
     padding: 10,
     borderRadius: 8,
-    marginVertical: 5,
+    marginBottom: 8,
+    borderLeftWidth: 3,
+    borderLeftColor: "#2E7D32"
   },
-  diseaseTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  stageCard: {
-    backgroundColor: "#e6f7ff",
-    padding: 10,
-    borderRadius: 8,
-    marginVertical: 5,
+  stageHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 4
   },
   stageTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
+    color: "#2E7D32"
+  },
+  stageDay: {
+    color: "#666",
+    fontSize: 12
   },
   alertText: {
-    color: "#d9534f",
+    color: "#D32F2F",
+    fontSize: 12,
+    marginTop: 4,
+    fontStyle: 'italic'
+  },
+  subHeader: {
     fontWeight: "bold",
+    fontSize: 16,
+    color: "#2E7D32",
+    marginBottom: 5
+  },
+  diseaseItem: {
+    marginBottom: 10,
+    padding: 8,
+    backgroundColor: "#ffebee", // lighter red bg
+    borderRadius: 6
+  },
+  diseaseName: {
+    fontWeight: 'bold',
+    color: "#c62828",
+    marginBottom: 2
+  },
+  textSmall: {
+    fontSize: 13,
+    color: "#444",
+    marginBottom: 2
+  },
+  tipItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 8
+  },
+  tipText: {
+    marginLeft: 10,
+    color: "#333",
+    fontSize: 14,
+    flex: 1
+  },
+  bottomBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 15,
+    backgroundColor: "white",
+    borderTopWidth: 1,
+    borderTopColor: "#eee",
+    elevation: 10
   },
   scheduleButton: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#2E7D32",
     padding: 15,
-    borderRadius: 10,
-    marginTop: 20,
+    borderRadius: 12,
+    flexDirection: 'row',
     alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4
   },
   scheduleButtonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
   },
 });
