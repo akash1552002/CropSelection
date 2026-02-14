@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect, useCallback } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, Image, FlatList, Dimensions, StatusBar } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, Image, FlatList, Dimensions, StatusBar, ActivityIndicator } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Location from "expo-location";
@@ -46,12 +47,19 @@ const cropImages: { [key: string]: any } = {
 
 import { useTranslation } from "react-i18next";
 import "../services/i18n"; // Ensure i18n is initialized
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../store/store';
+import { fetchPrices } from '../store/marketSlice';
 
 const HomeScreen: React.FC = () => {
   const { t } = useTranslation();
   const navigation = useNavigation<any>();
+  const dispatch = useDispatch<AppDispatch>();
+
+  // Redux state
+  const { prices: marketPrices, loading: loadingMarket } = useSelector((state: RootState) => state.market);
+
   const [weather, setWeather] = useState<any>(null);
-  const [marketPrices, setMarketPrices] = useState<any[]>([]);
   const [loadingWeather, setLoadingWeather] = useState(true);
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -69,10 +77,12 @@ const HomeScreen: React.FC = () => {
       let location = await Location.getCurrentPositionAsync({});
       loadWeather(location.coords.latitude, location.coords.longitude);
 
-      // 2. Load Market Prices
-      loadMarketPrices();
+      // 2. Load Market Prices (Redux)
+      if (marketPrices.length === 0) {
+        dispatch(fetchPrices());
+      }
     })();
-  }, []);
+  }, [dispatch]); // Added dispatch to dependency array
 
   useFocusEffect(
     useCallback(() => {
@@ -84,7 +94,7 @@ const HomeScreen: React.FC = () => {
     try {
       const loadedCrops: ActiveCrop[] = [];
       for (const cropData of cropScheduleDataRaw) {
-        const storedDate = await AsyncStorage.getItem(`sowingDate_${cropData.crop_name}`);
+        const storedDate = await AsyncStorage.getItem(`sowingDate_${cropData.crop_name} `);
         if (storedDate) {
           const sowingDate = new Date(storedDate);
           const today = new Date();
@@ -112,10 +122,7 @@ const HomeScreen: React.FC = () => {
     setLoadingWeather(false);
   };
 
-  const loadMarketPrices = async () => {
-    const data: any = await fetchMarketPrices();
-    setMarketPrices(data);
-  };
+  // Removed loadMarketPrices function as it is replaced by Redux
 
   const handleOpenCamera = async () => {
     navigation.navigate("ScanPlant");
@@ -266,20 +273,24 @@ const HomeScreen: React.FC = () => {
               </TouchableOpacity>
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ paddingLeft: 20 }}>
-              {marketPrices.slice(0, 5).map((item, index) => (
-                <View key={index} style={styles.marketCard}>
-                  <View style={styles.marketIcon}>
-                    <Text style={{ fontSize: 18 }}>{item.trend === 'up' ? '📈' : '📉'}</Text>
+              {loadingMarket ? (
+                <ActivityIndicator size="small" color="#4CAF50" style={{ marginLeft: 20 }} />
+              ) : (
+                marketPrices.slice(0, 5).map((item: any, index: number) => (
+                  <View key={index} style={styles.marketCard}>
+                    <View style={styles.marketIcon}>
+                      <Text style={{ fontSize: 18 }}>{item.trend === 'up' ? '📈' : '📉'}</Text>
+                    </View>
+                    <View>
+                      <Text style={styles.marketCrop}>{item.crop}</Text>
+                      <Text style={styles.marketPrice}>₹{item.price}</Text>
+                    </View>
+                    <Text style={[styles.marketChange, { color: item.trend === 'up' ? '#4CAF50' : '#F44336' }]}>
+                      {item.change}
+                    </Text>
                   </View>
-                  <View>
-                    <Text style={styles.marketCrop}>{item.crop}</Text>
-                    <Text style={styles.marketPrice}>₹{item.price}</Text>
-                  </View>
-                  <Text style={[styles.marketChange, { color: item.trend === 'up' ? '#4CAF50' : '#F44336' }]}>
-                    {item.change}
-                  </Text>
-                </View>
-              ))}
+                ))
+              )}
             </ScrollView>
           </View>
         </View>

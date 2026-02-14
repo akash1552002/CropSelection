@@ -8,6 +8,8 @@ Notifications.setNotificationHandler({
         shouldShowAlert: true,
         shouldPlaySound: true,
         shouldSetBadge: false,
+        shouldShowBanner: true,
+        shouldShowList: true,
     }),
 });
 
@@ -52,7 +54,8 @@ export async function scheduleNotification(title: string, body: string, date: Da
                 sound: true,
             },
             trigger: {
-                date: date, // Schedule at this specific date
+                type: Notifications.SchedulableTriggerInputTypes.DATE,
+                date: date,
             },
         });
         console.log(`Scheduled: ${title} for ${date.toLocaleString()}`);

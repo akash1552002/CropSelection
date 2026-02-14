@@ -6,7 +6,7 @@ const AuthScreen = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
 
   const handleAuth = () => {
     if (!email || !password) {

@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../store/store';
+import { setLanguage } from '../store/userSlice';
+import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Switch, Image } from "react-native";
 import { useTranslation } from "react-i18next";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -8,12 +11,13 @@ import { useNavigation } from "@react-navigation/native";
 const ProfileScreen = () => {
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
-  const [currentLang, setCurrentLang] = useState(i18n.language);
+  const dispatch = useDispatch<AppDispatch>();
+  const { language, name } = useSelector((state: RootState) => state.user);
 
   const changeLanguage = async (lang: string) => {
     await AsyncStorage.setItem('user-language', lang);
     i18n.changeLanguage(lang);
-    setCurrentLang(lang);
+    dispatch(setLanguage(lang));
   };
 
   return (
@@ -34,7 +38,7 @@ const ProfileScreen = () => {
             <Ionicons name="person" size={40} color="#FFF" />
           </View>
           <View>
-            <Text style={styles.userName}>Farmer</Text>
+            <Text style={styles.userName}>{name}</Text>
             <Text style={styles.userRole}>Premium Member</Text>
           </View>
         </View>
@@ -43,19 +47,19 @@ const ProfileScreen = () => {
         <Text style={styles.sectionTitle}>{t('change_language')}</Text>
 
         <TouchableOpacity
-          style={[styles.langOption, currentLang === 'en' && styles.activeOption]}
+          style={[styles.langOption, language === 'en' && styles.activeOption]}
           onPress={() => changeLanguage('en')}
         >
-          <Text style={[styles.langText, currentLang === 'en' && styles.activeText]}>🇺🇸 {t('english')}</Text>
-          {currentLang === 'en' && <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />}
+          <Text style={[styles.langText, language === 'en' && styles.activeText]}>🇺🇸 {t('english')}</Text>
+          {language === 'en' && <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />}
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[styles.langOption, currentLang === 'hi' && styles.activeOption]}
+          style={[styles.langOption, language === 'hi' && styles.activeOption]}
           onPress={() => changeLanguage('hi')}
         >
-          <Text style={[styles.langText, currentLang === 'hi' && styles.activeText]}>🇮🇳 {t('hindi')}</Text>
-          {currentLang === 'hi' && <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />}
+          <Text style={[styles.langText, language === 'hi' && styles.activeText]}>🇮🇳 {t('hindi')}</Text>
+          {language === 'hi' && <Ionicons name="checkmark-circle" size={24} color="#4CAF50" />}
         </TouchableOpacity>
 
       </View>

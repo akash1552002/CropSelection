@@ -20,7 +20,7 @@ const CATEGORIES = {
 };
 
 const AddTransactionScreen = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<any>();
     const [type, setType] = useState<'EXPENSE' | 'INCOME'>('EXPENSE');
     const [amount, setAmount] = useState("");
     const [category, setCategory] = useState("Other");

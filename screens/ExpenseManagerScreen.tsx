@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
     View,
     Text,
@@ -12,11 +12,17 @@ import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { TransactionService, Transaction } from "../services/TransactionService";
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../store/store';
+import { setTransactions } from '../store/financeSlice';
 
 const ExpenseManagerScreen = () => {
     const navigation = useNavigation<any>();
-    const [transactions, setTransactions] = useState<Transaction[]>([]);
-    const [summary, setSummary] = useState({ totalIncome: 0, totalExpense: 0, netProfit: 0 });
+    const dispatch = useDispatch<AppDispatch>();
+
+    // Redux State
+    const { transactions, balance } = useSelector((state: RootState) => state.finance);
+    const [summary, setSummary] = useState({ totalIncome: 0, totalExpense: 0 });
 
     useFocusEffect(
         useCallback(() => {
@@ -24,11 +30,22 @@ const ExpenseManagerScreen = () => {
         }, [])
     );
 
+    // Sync Redux with simplified local summary for now (or move logic to selector)
+    useEffect(() => {
+        let income = 0;
+        let expense = 0;
+        transactions.forEach(t => {
+            if (t.type === 'INCOME') income += t.amount;
+            else expense += t.amount;
+        });
+        setSummary({ totalIncome: income, totalExpense: expense });
+    }, [transactions]);
+
     const loadData = async () => {
+        // In a real app, this would be a thunk. For now, we load and set Redux.
         const data = await TransactionService.getTransactions();
-        const financialSummary = await TransactionService.getFinancialSummary();
-        setTransactions(data);
-        setSummary(financialSummary);
+        // Convert service types if needed, simplified for now
+        dispatch(setTransactions(data));
     };
 
     const handleDelete = (id: string) => {
@@ -42,7 +59,7 @@ const ExpenseManagerScreen = () => {
                     style: "destructive",
                     onPress: async () => {
                         await TransactionService.deleteTransaction(id);
-                        loadData();
+                        loadData(); // Reload to update Redux
                     }
                 }
             ]
@@ -63,8 +80,8 @@ const ExpenseManagerScreen = () => {
 
             <View style={styles.summaryCard}>
                 <Text style={styles.summaryLabel}>Net Profit</Text>
-                <Text style={[styles.summaryValue, { color: summary.netProfit >= 0 ? '#4CAF50' : '#F44336' }]}>
-                    {summary.netProfit >= 0 ? '+' : '-'} ₹{Math.abs(summary.netProfit).toLocaleString()}
+                <Text style={[styles.summaryValue, { color: (summary.totalIncome - summary.totalExpense) >= 0 ? '#4CAF50' : '#F44336' }]}>
+                    {(summary.totalIncome - summary.totalExpense) >= 0 ? '+' : '-'} ₹{Math.abs(summary.totalIncome - summary.totalExpense).toLocaleString()}
                 </Text>
 
                 <View style={styles.statsRow}>

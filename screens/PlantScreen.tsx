@@ -48,7 +48,7 @@ const PlantScreen = ({ route }: any) => {
     );
   }
 
-  const irrigationInfo = irrigationData[crop.crop_name]?.irrigation || {
+  const irrigationInfo = (irrigationData as any)[crop.crop_name]?.irrigation || {
     water_requirements: "No data available",
     irrigation_method: "No data available",
     recommended_frequency: "No data available",

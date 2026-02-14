@@ -7,33 +7,33 @@ import { fetchMarketPrices } from "../services/marketPriceService";
 import { useTranslation } from "react-i18next";
 import "../services/i18n";
 
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../store/store';
+import { fetchPrices } from '../store/marketSlice';
+
 type FilterType = "All" | "Gainers" | "Losers";
 
 export default function MarketPriceScreen() {
   const { t } = useTranslation();
   const navigation = useNavigation();
-  const [prices, setPrices] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch<AppDispatch>();
+
+  // Redux state
+  const { prices, loading, lastUpdated } = useSelector((state: RootState) => state.market);
+
   const [refreshing, setRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");
-  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
 
   useEffect(() => {
-    loadPrices();
-  }, []);
-
-  const loadPrices = async () => {
-    const data: any = await fetchMarketPrices();
-    setPrices(data);
-    setLastUpdated(new Date().toLocaleTimeString());
-    setLoading(false);
-    setRefreshing(false);
-  };
+    if (prices.length === 0) {
+      dispatch(fetchPrices());
+    }
+  }, [dispatch, prices.length]);
 
   const onRefresh = () => {
     setRefreshing(true);
-    loadPrices();
+    dispatch(fetchPrices()).then(() => setRefreshing(false));
   };
 
   const filteredPrices = useMemo(() => {
