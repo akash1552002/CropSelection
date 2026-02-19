@@ -11,9 +11,12 @@ import { LinearGradient } from "expo-linear-gradient";
 // Custom Services
 import { fetchWeatherData } from "../services/weatherService";
 import { fetchMarketPrices } from "../services/marketPriceService";
+import { fetchCrops } from "../services/api";
 
 // Import crop data
-import cropScheduleDataRaw from "../assets/full_crop_daily_schedule.json";
+// Import crop data
+// Import crop data
+// import cropScheduleDataRaw from "../assets/full_crop_daily_schedule.json";
 
 // Types
 interface ActiveCrop {
@@ -22,34 +25,17 @@ interface ActiveCrop {
   currentDay: number;
   currentWeek: number;
   growthDuration: number;
+  image?: string;
 }
 
 const { width } = Dimensions.get('window');
-
-const cropImages: { [key: string]: any } = {
-  Wheat: require("../assets/wheat1.jpeg"),
-  Rice: require("../assets/rice1.jpg"),
-  Maize: require("../assets/maize1.webp"),
-  Sugarcane: require("../assets/sugarcane1.jpg"),
-  Cotton: require("../assets/cotton.jpg"),
-  Barley: require("../assets/barley.jpg"),
-  Soybean: require("../assets/soybean.webp"),
-  Groundnut: require("../assets/groundnut.webp"),
-  Millets: require("../assets/millets.jpg"),
-  Chickpeas: require("../assets/chickpeas.jpg"),
-  Mustard: require("../assets/mustard.jpg"),
-  Banana: require("../assets/banana.jpg"),
-  Mango: require("../assets/Mangoes.webp"),
-  Tomato: require("../assets/tomato.jpeg"),
-  Potato: require("../assets/potato.webp"),
-  Onion: require("../assets/onion.jpg"),
-};
 
 import { useTranslation } from "react-i18next";
 import "../services/i18n"; // Ensure i18n is initialized
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../store/store';
 import { fetchPrices } from '../store/marketSlice';
+import { getImageUrl } from "../services/api";
 
 const HomeScreen: React.FC = () => {
   const { t } = useTranslation();
@@ -92,21 +78,33 @@ const HomeScreen: React.FC = () => {
 
   const loadActiveCrops = async () => {
     try {
+      const allCrops = await fetchCrops();
       const loadedCrops: ActiveCrop[] = [];
-      for (const cropData of cropScheduleDataRaw) {
+
+      for (const cropData of allCrops) {
         const storedDate = await AsyncStorage.getItem(`sowingDate_${cropData.crop_name} `);
-        if (storedDate) {
-          const sowingDate = new Date(storedDate);
+
+        // Check for key without trailing space as well, just in case
+        const storedDateAlt = await AsyncStorage.getItem(`sowingDate_${cropData.crop_name}`);
+        const finalStoredDate = storedDate || storedDateAlt;
+
+        if (finalStoredDate) {
+          const sowingDate = new Date(finalStoredDate);
           const today = new Date();
           const diffTime = Math.abs(today.getTime() - sowingDate.getTime());
           const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
           const currentWeek = Math.ceil(diffDays / 7);
+
+          // Use optional chaining for growthDuration as API structure might vary slightly
+          const duration = cropData.growth_cycle?.growthDuration || cropData.growthDuration || 120;
+
           loadedCrops.push({
             cropName: cropData.crop_name,
             sowingDate: sowingDate,
             currentDay: diffDays,
             currentWeek: currentWeek,
-            growthDuration: cropData.growthDuration
+            growthDuration: duration,
+            image: cropData.image
           });
         }
       }
@@ -229,7 +227,7 @@ const HomeScreen: React.FC = () => {
               activeOpacity={0.9}
               onPress={() => navigation.navigate("CropDailySchedule", { cropName: item.cropName })}
             >
-              <Image source={cropImages[item.cropName]} style={styles.cropImage} />
+              <Image source={{ uri: getImageUrl(item.image) || undefined }} style={styles.cropImage} />
               <LinearGradient colors={['transparent', 'rgba(0,0,0,0.8)']} style={styles.cropOverlay}>
                 <Text style={styles.cropName}>{item.cropName}</Text>
                 <View style={styles.cropProgressRow}>

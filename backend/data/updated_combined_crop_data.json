@@ -129,9 +129,8 @@
             "recommended_frequency": "Once every 7-10 days",
             "seasonal_adjustments": "Increase irrigation in dry seasons, reduce before harvesting"
         },
-        "image":"../assets/wheat.jpeg",
+        "image": "/images/wheat1.jpeg",
         "icon": "https://images.pexels.com/photos/27569479/pexels-photo-27569479/free-photo-of-woman-eating-sandwich-with-fork-and-knife.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              
     },
     {
         "crop_name": "Rice",
@@ -245,7 +244,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/rice.jpg",
+        "image": "/images/rice1.jpg",
         "icon": "https://example.com/icons/rice.png"
     },
     {
@@ -348,7 +347,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/maize.jpg",
+        "image": "/images/maize1.webp",
         "icon": "https://example.com/icons/maize.png"
     },
     {
@@ -451,7 +450,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/sugarcane.jpg",
+        "image": "/images/sugarcane1.jpg",
         "icon": "https://example.com/icons/sugarcane.png"
     },
     {
@@ -554,7 +553,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/cotton.jpg",
+        "image": "/images/cotton.jpg",
         "icon": "https://example.com/icons/cotton.png"
     },
     {
@@ -643,7 +642,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/barley.jpg",
+        "image": "/images/barley.jpg",
         "icon": "https://example.com/icons/barley.png"
     },
     {
@@ -732,7 +731,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/soybean.jpg",
+        "image": "/images/soybean.webp",
         "icon": "https://example.com/icons/soybean.png"
     },
     {
@@ -821,7 +820,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/groundnut.jpg",
+        "image": "/images/groundnut.webp",
         "icon": "https://example.com/icons/groundnut.png"
     },
     {
@@ -910,7 +909,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/millets.jpg",
+        "image": "/images/millets.jpg",
         "icon": "https://example.com/icons/millets.png"
     },
     {
@@ -1088,7 +1087,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/mustard.jpg",
+        "image": "/images/mustard.jpg",
         "icon": "https://example.com/icons/mustard.png"
     },
     {
@@ -1177,7 +1176,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/banana.jpg",
+        "image": "/images/banana.jpg",
         "icon": "https://example.com/icons/banana.png"
     },
     {
@@ -1266,7 +1265,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/mango.jpg",
+        "image": "/images/Mangoes.webp",
         "icon": "https://example.com/icons/mango.png"
     },
     {
@@ -1355,7 +1354,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/tomato.jpg",
+        "image": "/images/tomato.jpeg",
         "icon": "https://example.com/icons/tomato.png"
     },
     {
@@ -1444,7 +1443,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/potato.jpg",
+        "image": "/images/potato.webp",
         "icon": "https://example.com/icons/potato.png"
     },
     {
@@ -1533,7 +1532,7 @@
             "Implement integrated pest management to reduce crop loss."
         ],
         "irrigation": "No irrigation data available",
-        "image": "https://example.com/images/onion.jpg",
+        "image": "/images/onion.jpg",
         "icon": "https://example.com/icons/onion.png"
     }
 ]

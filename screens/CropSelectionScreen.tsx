@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -6,18 +6,19 @@ import {
   FlatList,
   StyleSheet,
   TouchableOpacity,
-  SafeAreaView,
   Dimensions,
   TextInput,
   StatusBar,
-  Platform
+  Platform,
+  ActivityIndicator,
+  Alert
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Animatable from "react-native-animatable";
 
-import cropData from "../assets/updated_combined_crop_data (3).json";
+import { fetchCrops, getImageUrl } from "../services/api";
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = width / 2 - 25;
@@ -25,36 +26,38 @@ const CARD_WIDTH = width / 2 - 25;
 const CropSelection = () => {
   const navigation = useNavigation<any>();
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredCrops, setFilteredCrops] = useState(Object.values(cropData));
+  const [crops, setCrops] = useState<any[]>([]);
+  const [filteredCrops, setFilteredCrops] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const cropImages: { [key: string]: any } = {
-    Wheat: require("../assets/wheat1.jpeg"),
-    Rice: require("../assets/rice1.jpg"),
-    Maize: require("../assets/maize1.webp"),
-    Sugarcane: require("../assets/sugarcane1.jpg"),
-    Cotton: require("../assets/cotton.jpg"),
-    Barley: require("../assets/barley.jpg"),
-    Soybean: require("../assets/soybean.webp"),
-    Groundnut: require("../assets/groundnut.webp"),
-    Millets: require("../assets/millets.jpg"),
-    Chickpeas: require("../assets/chickpeas.jpg"),
-    Mustard: require("../assets/mustard.jpg"),
-    Banana: require("../assets/banana.jpg"),
-    Mango: require("../assets/Mangoes.webp"),
-    Tomato: require("../assets/tomato.jpeg"),
-    Potato: require("../assets/potato.webp"),
-    Onion: require("../assets/onion.jpg"),
+
+
+  useEffect(() => {
+    loadCrops();
+  }, []);
+
+  const loadCrops = async () => {
+    try {
+      setLoading(true);
+      const data = await fetchCrops();
+      setCrops(data);
+      setFilteredCrops(data);
+    } catch (error) {
+      Alert.alert("Error", "Failed to load crops. Please check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleSearch = (text: string) => {
     setSearchQuery(text);
     if (text) {
-      const filtered = Object.values(cropData).filter((item) =>
+      const filtered = crops.filter((item) =>
         item.crop_name.toLowerCase().includes(text.toLowerCase())
       );
       setFilteredCrops(filtered);
     } else {
-      setFilteredCrops(Object.values(cropData));
+      setFilteredCrops(crops);
     }
   };
 
@@ -101,7 +104,7 @@ const CropSelection = () => {
       >
         <View style={styles.imageContainer}>
           <Image
-            source={cropImages[item.crop_name]}
+            source={{ uri: getImageUrl(item.image) || undefined }}
             style={styles.image}
             resizeMode="cover"
           />
@@ -126,20 +129,27 @@ const CropSelection = () => {
       <StatusBar barStyle="light-content" backgroundColor="#1B5E20" />
       {renderHeader()}
 
-      <FlatList
-        data={filteredCrops}
-        numColumns={2}
-        keyExtractor={(item) => item.crop_name}
-        contentContainerStyle={styles.listContainer}
-        showsVerticalScrollIndicator={false}
-        renderItem={renderItem}
-        ListEmptyComponent={
-          <View style={styles.emptyState}>
-            <Ionicons name="leaf-outline" size={48} color="#CCC" />
-            <Text style={styles.emptyText}>No crops found. Try a different search.</Text>
-          </View>
-        }
-      />
+      {loading ? (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#4CAF50" />
+          <Text style={styles.loadingText}>Loading crops...</Text>
+        </View>
+      ) : (
+        <FlatList
+          data={filteredCrops}
+          numColumns={2}
+          keyExtractor={(item) => item._id || item.crop_name}
+          contentContainerStyle={styles.listContainer}
+          showsVerticalScrollIndicator={false}
+          renderItem={renderItem}
+          ListEmptyComponent={
+            <View style={styles.emptyState}>
+              <Ionicons name="leaf-outline" size={48} color="#CCC" />
+              <Text style={styles.emptyText}>No crops found. Try a different search.</Text>
+            </View>
+          }
+        />
+      )}
     </View>
   );
 };
@@ -256,6 +266,16 @@ const styles = StyleSheet.create({
     color: '#999',
     fontSize: 16,
     marginTop: 10
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  loadingText: {
+    marginTop: 10,
+    color: '#666',
+    fontSize: 16
   }
 });
 

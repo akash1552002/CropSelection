@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, Platform, ScrollView, LayoutAnimation, UIManager } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, Platform, ScrollView, LayoutAnimation, UIManager, ActivityIndicator } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Animatable from "react-native-animatable";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from "@expo/vector-icons";
+import { fetchCropSchedule, getImageUrl } from "../services/api"; // Import API service
 
-// Import original data (transformed in script)
-// Note: Types need to be inferred or cast correctly as the JSON structure changed
-import cropScheduleDataRaw from "../assets/full_crop_daily_schedule.json";
 import { registerForPushNotificationsAsync, scheduleNotification } from "../services/notificationService";
 
 // Helper to enable LayoutAnimation on Android
@@ -16,7 +14,6 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-// Define updated types matching the NEW JSON structure
 interface Task {
   day: number;
   task: string;
@@ -31,29 +28,11 @@ interface Week {
 interface CropData {
   crop_name: string;
   growthDuration: number;
-  weeks: Week[]; // Changed from daily_schedule
+  image?: string;
+  weeks: Week[];
 }
 
-const cropScheduleData = cropScheduleDataRaw as unknown as CropData[];
 
-const cropImages: { [key: string]: any } = {
-  Wheat: require("../assets/wheat1.jpeg"),
-  Rice: require("../assets/rice1.jpg"),
-  Maize: require("../assets/maize1.webp"),
-  Sugarcane: require("../assets/sugarcane1.jpg"),
-  Cotton: require("../assets/cotton.jpg"),
-  Barley: require("../assets/barley.jpg"),
-  Soybean: require("../assets/soybean.webp"),
-  Groundnut: require("../assets/groundnut.webp"),
-  Millets: require("../assets/millets.jpg"),
-  Chickpeas: require("../assets/chickpeas.jpg"),
-  Mustard: require("../assets/mustard.jpg"),
-  Banana: require("../assets/banana.jpg"),
-  Mango: require("../assets/Mangoes.webp"),
-  Tomato: require("../assets/tomato.jpeg"),
-  Potato: require("../assets/potato.webp"),
-  Onion: require("../assets/onion.jpg"),
-};
 
 // Define category icons/colors for better visuals
 const getCategoryStyle = (category: string) => {
@@ -70,11 +49,31 @@ const getCategoryStyle = (category: string) => {
 
 const CropDailySchedule = ({ route }: any) => {
   const { cropName } = route.params;
-  const crop = cropScheduleData.find((item) => item.crop_name === cropName);
+  const [crop, setCrop] = useState<CropData | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const [sowingDate, setSowingDate] = useState<Date | null>(null);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [expandedWeeks, setExpandedWeeks] = useState<{ [key: number]: boolean }>({});
+
+  useEffect(() => {
+    loadSchedule();
+  }, [cropName]);
+
+  const loadSchedule = async () => {
+    try {
+      setLoading(true);
+      const data = await fetchCropSchedule(cropName);
+      setCrop(data);
+    } catch (error) {
+      console.error("Error loading schedule:", error);
+      Alert.alert("Error", "Failed to load schedule.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
 
   useEffect(() => {
     registerForPushNotificationsAsync();
@@ -177,6 +176,14 @@ const CropDailySchedule = ({ route }: any) => {
     }));
   };
 
+  if (loading) {
+    return (
+      <View style={[styles.container, { justifyContent: 'center', alignItems: 'center' }]}>
+        <ActivityIndicator size="large" color="#4CAF50" />
+      </View>
+    );
+  }
+
   if (!crop) {
     return (
       <View style={styles.container}>
@@ -267,9 +274,10 @@ const CropDailySchedule = ({ route }: any) => {
     <View style={styles.container}>
       <LinearGradient colors={["#4CAF50", "#2E7D32"]} style={styles.header}>
         <View style={styles.headerContent}>
-          {cropImages[cropName] && (
-            <Image source={cropImages[cropName]} style={styles.cropIcon} />
-          )}
+          <Image
+            source={{ uri: getImageUrl(crop?.image) || undefined }}
+            style={styles.cropIcon}
+          />
           <View style={styles.headerTexts}>
             <Text style={styles.headerText}>{crop.crop_name}</Text>
             <Text style={styles.subHeaderText}>{crop.growthDuration} Days Duration</Text>

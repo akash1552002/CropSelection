@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Platform, UIManager } from "react-native";
-import irrigationData from "../assets/irrigation_data_detailed.json";
+import React, { useState, useEffect } from "react";
+import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, SafeAreaView, Platform, UIManager, ActivityIndicator } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
+import { fetchIrrigationData, getImageUrl } from "../services/api";
 
 // Custom Components
 import InfoCard from "../components/InfoCard";
@@ -16,24 +16,26 @@ if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental
 const PlantScreen = ({ route }: any) => {
   const navigation = useNavigation<any>();
   const { crop } = route.params || {};
+  const [irrigationInfo, setIrrigationInfo] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  const cropImages: { [key: string]: any } = {
-    Wheat: require("../assets/wheat1.jpeg"),
-    Rice: require("../assets/rice1.jpg"),
-    Maize: require("../assets/maize1.webp"),
-    Sugarcane: require("../assets/sugarcane1.jpg"),
-    Cotton: require("../assets/cotton.jpg"),
-    Barley: require("../assets/barley.jpg"),
-    Soybean: require("../assets/soybean.webp"),
-    Groundnut: require("../assets/groundnut.webp"),
-    Millets: require("../assets/millets.jpg"),
-    Chickpeas: require("../assets/chickpeas.jpg"),
-    Mustard: require("../assets/mustard.jpg"),
-    Banana: require("../assets/banana.jpg"),
-    Mango: require("../assets/Mangoes.webp"),
-    Tomato: require("../assets/tomato.jpeg"),
-    Potato: require("../assets/potato.webp"),
-    Onion: require("../assets/onion.jpg"),
+
+
+  useEffect(() => {
+    if (crop) {
+      loadIrrigationData();
+    }
+  }, [crop]);
+
+  const loadIrrigationData = async () => {
+    try {
+      const data = await fetchIrrigationData(crop.crop_name);
+      setIrrigationInfo(data);
+    } catch (error) {
+      console.log("Error loading irrigation data", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!crop) {
@@ -48,18 +50,24 @@ const PlantScreen = ({ route }: any) => {
     );
   }
 
-  const irrigationInfo = (irrigationData as any)[crop.crop_name]?.irrigation || {
+  // Fallback if data not found or loading
+  const finalIrrigation = irrigationInfo || (loading ? {
+    water_requirements: "Loading...",
+    irrigation_method: "Loading...",
+    recommended_frequency: "Loading...",
+    seasonal_adjustments: "Loading...",
+  } : {
     water_requirements: "No data available",
     irrigation_method: "No data available",
     recommended_frequency: "No data available",
     seasonal_adjustments: "No data available",
-  };
+  });
 
   return (
     <View style={styles.mainContainer}>
       <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
         {/* Hero Image */}
-        <Image source={cropImages[crop.crop_name]} style={styles.heroImage} />
+        <Image source={{ uri: getImageUrl(crop.image) || undefined }} style={styles.heroImage} />
 
         <View style={styles.contentContainer}>
           <Text style={styles.title}>{crop.crop_name}</Text>
@@ -97,9 +105,9 @@ const PlantScreen = ({ route }: any) => {
           </AccordionItem>
 
           <AccordionItem title="💦 Irrigation Details" icon="water">
-            <Text style={styles.textLabel}>Method: <Text style={styles.textValue}>{irrigationInfo.irrigation_method}</Text></Text>
-            <Text style={styles.textLabel}>Frequency: <Text style={styles.textValue}>{irrigationInfo.recommended_frequency}</Text></Text>
-            <Text style={styles.textLabel}>Adjustments: <Text style={styles.textValue}>{irrigationInfo.seasonal_adjustments}</Text></Text>
+            <Text style={styles.textLabel}>Method: <Text style={styles.textValue}>{finalIrrigation.irrigation_method}</Text></Text>
+            <Text style={styles.textLabel}>Frequency: <Text style={styles.textValue}>{finalIrrigation.recommended_frequency}</Text></Text>
+            <Text style={styles.textLabel}>Adjustments: <Text style={styles.textValue}>{finalIrrigation.seasonal_adjustments}</Text></Text>
           </AccordionItem>
 
           <AccordionItem title="🐛 Pests & Diseases" icon="bug">

@@ -1,6 +1,6 @@
 import { Alert } from "react-native";
 
-const API_KEY = "49a307152c0bc597234983d212525161"; // Consider moving this to .env later
+const API_KEY = process.env.EXPO_PUBLIC_WEATHER_API_KEY;
 
 export const fetchWeatherData = async (lat: number, lon: number) => {
     try {
