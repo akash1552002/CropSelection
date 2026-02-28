@@ -57,51 +57,49 @@ const ScanPlantScreen = () => {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor="black" />
-            <CameraView style={styles.camera} facing="back" ref={cameraRef}>
+            <CameraView style={styles.camera} facing="back" ref={cameraRef} />
 
-                {/* Overlay Layout */}
-                <View style={styles.overlay}>
+            {/* Overlay Layout - Moved outside CameraView */}
+            <View style={styles.overlay} pointerEvents="box-none">
 
-                    {/* Header */}
-                    <View style={styles.header}>
-                        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.closeBtn}>
-                            <Ionicons name="close" size={30} color="white" />
-                        </TouchableOpacity>
-                        <Text style={styles.headerText}>Scan Plant</Text>
-                        <View style={{ width: 40 }} />
-                    </View>
-
-                    {/* Focus Frame */}
-                    <View style={styles.focusFrameContainer}>
-                        <View style={[styles.corner, styles.topLeft]} />
-                        <View style={[styles.corner, styles.topRight]} />
-                        <View style={[styles.corner, styles.bottomLeft]} />
-                        <View style={[styles.corner, styles.bottomRight]} />
-                        <View style={styles.scanLine} />
-                    </View>
-                    <Text style={styles.hintText}>Place the leaf inside the frame</Text>
-
-                    {/* Footer controls */}
-                    <View style={styles.controls}>
-                        <TouchableOpacity style={styles.galleryBtn}>
-                            <Ionicons name="images-outline" size={28} color="white" />
-                        </TouchableOpacity>
-
-                        <TouchableOpacity
-                            style={styles.captureBtnOuter}
-                            onPress={takePicture}
-                            disabled={capturing}
-                        >
-                            <View style={styles.captureBtnInner} />
-                        </TouchableOpacity>
-
-                        <TouchableOpacity style={styles.flashBtn}>
-                            <Ionicons name="flash-off-outline" size={28} color="white" />
-                        </TouchableOpacity>
-                    </View>
+                {/* Header */}
+                <View style={styles.header}>
+                    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.closeBtn}>
+                        <Ionicons name="close" size={30} color="white" />
+                    </TouchableOpacity>
+                    <Text style={styles.headerText}>Scan Plant</Text>
+                    <View style={{ width: 40 }} />
                 </View>
 
-            </CameraView>
+                {/* Focus Frame */}
+                <View style={styles.focusFrameContainer} pointerEvents="none">
+                    <View style={[styles.corner, styles.topLeft]} />
+                    <View style={[styles.corner, styles.topRight]} />
+                    <View style={[styles.corner, styles.bottomLeft]} />
+                    <View style={[styles.corner, styles.bottomRight]} />
+                    <View style={styles.scanLine} />
+                </View>
+                <Text style={styles.hintText}>Place the leaf inside the frame</Text>
+
+                {/* Footer controls */}
+                <View style={styles.controls}>
+                    <TouchableOpacity style={styles.galleryBtn}>
+                        <Ionicons name="images-outline" size={28} color="white" />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={styles.captureBtnOuter}
+                        onPress={takePicture}
+                        disabled={capturing}
+                    >
+                        <View style={styles.captureBtnInner} />
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.flashBtn}>
+                        <Ionicons name="flash-off-outline" size={28} color="white" />
+                    </TouchableOpacity>
+                </View>
+            </View>
         </View>
     );
 };
@@ -124,10 +122,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     overlay: {
-        flex: 1,
+        ...StyleSheet.absoluteFillObject,
         justifyContent: 'space-between',
         padding: 20,
-        backgroundColor: 'rgba(0,0,0,0.3)'
     },
     header: {
         flexDirection: 'row',
